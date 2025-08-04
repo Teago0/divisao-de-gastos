@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão de Gastos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Divisão de Gastos</h1>
+
+    <!-- Formulário de entrada: nome e valor -->
+    <div class="formulario">
+        <label for="pessoa">Nome:</label>
+        <input type="text" id="pessoa" placeholder="ex: Mayara">
+
+        <label for="valor">Valor gasto:</label>
+        <input type="number" id="valor" step="0.01" placeholder="Valor gasto (ex: 25.50)">
+
+        <!-- Botões para interações -->
+        <button onclick="adicionarGasto()">Adicionar</button>
+        <button onclick="calcularTotais()">Calcular Total</button>
+        <button onclick="exportarParaExcel()">Exportar para Excel</button>
+    </div>
+
+    <!-- Filtros por pessoa (gerado dinamicamente) -->
+    <div id="filtros" class="filtros"></div>
+
+    <!-- Tabela que mostra os dados -->
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>Pessoa</th>
+                <th>Valor (R$)</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody></tbody> <!-- Preenchido via JavaScript -->
+    </table>
+
+    <!-- Área de exibição dos totais -->
+    <div class="total" id="resultado">
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>

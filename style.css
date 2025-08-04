@@ -1,0 +1,193 @@
+/* Reset e fonte padrão */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background-color: #f7f0fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Título */
+h1 {
+  margin: 30px;
+  color: #b36abb;
+}
+
+/* Formulário e inputs */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+/* Rótulos */
+label{
+    font-weight: bold;
+}
+
+
+/* Inputs e botões */
+input, button {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+/* Input com foco */
+input:focus {
+  border-color: #cc85d6;
+  outline: none;
+}
+
+/* Botão padrão */
+button {
+  background-color: #cc85d6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão com mouse hover */
+button:hover {
+  background-color: #b36abb;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Células da tabela */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #f4d7f4;
+    font-weight: bold;
+}
+
+/* Linhas alternadas */
+tr:nth-child(even) {
+    background-color: #f4f4fb;
+}
+
+/* Botão de remover */
+td button {
+    background-color: #e667a1;
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Botão de remover com hover */
+td button:hover {
+    background-color: #b84f78;
+}
+
+
+/* Total final */
+.total {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    white-space: pre-line;
+    background-color: #f0e4fa;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    color: #633d7c;
+}
+
+/* Estilos para telas pequenas */
+@media (max-width: 500px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .formulario {
+    max-width: 100%;
+  }
+
+  table, th, td {
+    font-size: 14px;
+  }
+
+  .total {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  input, button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Filtros de pessoa */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* Botões de filtro */
+.filtros button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover no filtro */
+.filtros button:hover {
+  background-color: #ddd;
+}
+
+/* Filtro ativo */
+.filtros button.ativo {
+  background-color: #cc85d6;
+  color: white;
+  font-weight: bold;
+  border-color: #b36abb;
+}
