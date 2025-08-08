@@ -9,6 +9,9 @@
 <body>
     <h1>Divisão de Gastos</h1>
 
+    <label for="mesAno">Selecione Mês/Ano:</label>
+    <input type="month" id="mesAno" />
+
     <!-- Formulário de entrada: nome e valor -->
     <div class="formulario">
         <label for="pessoa">Nome:</label>
@@ -20,7 +23,6 @@
         <!-- Botões para interações -->
         <button onclick="adicionarGasto()">Adicionar</button>
         <button onclick="calcularTotais()">Calcular Total</button>
-        <button onclick="exportarParaExcel()">Exportar para Excel</button>
     </div>
 
     <!-- Filtros por pessoa (gerado dinamicamente) -->
@@ -44,5 +46,4 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
