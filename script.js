@@ -5,10 +5,9 @@ let mesSelecionado = null;
 const pessoaInput = document.getElementById('pessoa');
 const valorInput = document.getElementById('valor');
 const mesAnoInput = document.getElementById('mesAno');
-const filtroAtual = { nome: null }; // Usar objeto para manter referência em closures
+const filtroAtual = { nome: null };
 
-const gastos = []; // Array temporário para o mês atual (vai ser sincronizado)
-
+let gastos = []; // Agora usamos let para poder substituir o array inteiro
 
 // Normaliza texto para facilitar filtros
 function normalizarTexto(texto) {
@@ -24,20 +23,15 @@ function salvarLocalStorage() {
 function carregarLocalStorage() {
   const dados = localStorage.getItem('gastosPorMes');
   if (dados) {
-    const obj = JSON.parse(dados);
-    for (const key in obj) {
-      gastosPorMes[key] = obj[key];
-    }
+    Object.assign(gastosPorMes, JSON.parse(dados));
   }
 }
 
 // Atualiza o array gastos com os dados do mês selecionado
 function carregarGastosMes() {
   if (!mesSelecionado) return;
-  gastos.length = 0; // limpa o array temporário
-  if (gastosPorMes[mesSelecionado]) {
-    gastos.push(...gastosPorMes[mesSelecionado]);
-  } else {
+  gastos = gastosPorMes[mesSelecionado] ? [...gastosPorMes[mesSelecionado]] : [];
+  if (!gastosPorMes[mesSelecionado]) {
     gastosPorMes[mesSelecionado] = [];
   }
 }
@@ -100,10 +94,13 @@ function adicionarGasto() {
   const valor = parseFloat(valorInput.value);
 
   if (!pessoa || isNaN(valor)) return alert('Informe nome e valor válidos.');
+  if (!mesSelecionado) return alert('Selecione um mês/ano.');
 
   const gasto = { pessoa, valor };
   gastos.push(gasto);
-  gastosPorMes[mesSelecionado] = gastos;
+
+  // Atualiza o objeto mensal com cópia do array
+  gastosPorMes[mesSelecionado] = [...gastos];
   salvarLocalStorage();
 
   atualizarTabela();
@@ -116,7 +113,7 @@ function adicionarGasto() {
 // Remove gasto pelo índice no array gastos e salva
 function removerGasto(index) {
   gastos.splice(index, 1);
-  gastosPorMes[mesSelecionado] = gastos;
+  gastosPorMes[mesSelecionado] = [...gastos];
   salvarLocalStorage();
   atualizarTabela();
 }
