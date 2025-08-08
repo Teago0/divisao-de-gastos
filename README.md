@@ -26,4 +26,4 @@ Este projeto é uma calculadora simples feita em HTML, CSS e JavaScript para aju
 
 ## Observações
 
-Os dados não são armazenados de forma permanente (não há uso de banco de dados ou armazenamento local). O foco deste projeto é a prática com manipulação de DOM e interações básicas com JavaScript.
+Os dados são armazenados localmente no navegador usando localStorage, permitindo que as informações persistam entre sessões no mesmo dispositivo. Este projeto foi desenvolvido com foco na prática de manipulação do DOM, lógica em JavaScript e interação com armazenamento local. No desenvolvimento do código JavaScript, utilizei a ajuda do ChatGPT para melhorar a lógica e funcionalidades.
